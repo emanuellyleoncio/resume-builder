@@ -1,15 +1,21 @@
 import { ComponentProps } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Input } from ".";
-import { FieldWrapper } from "../field-wrapper";
-
+import { FieldWrapper } from "../dialog/field-wrapper";
 
 type InputFieldProps = ComponentProps<typeof Input> & {
   label: string;
   name: string;
+  containerClassName?: string;
 };
 
-export const InputField = ({ label, name, required, ...props }: InputFieldProps) => {
+export const InputField = ({
+  label,
+  name,
+  required,
+  containerClassName,
+  ...props
+}: InputFieldProps) => {
   const { control } = useFormContext();
 
   return (
@@ -17,8 +23,8 @@ export const InputField = ({ label, name, required, ...props }: InputFieldProps)
       control={control}
       name={name}
       rules={{ required: required && "Field required" }}
-      render={({ field, fieldState}) => (
-        <FieldWrapper label={label}>
+      render={({ field, fieldState }) => (
+        <FieldWrapper label={label} className={containerClassName}>
           <Input {...props} {...field} />
           {fieldState.error && (
             <span className="text-red-500 text-sm mt-1">
