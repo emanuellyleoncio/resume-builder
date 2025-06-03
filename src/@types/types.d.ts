@@ -99,7 +99,7 @@ type ResumeStructureData = {
 
 type ResumeData = {
   content: ResumeContentData;
-  /*structure: ResumeStructureData;*/
+  structure: ResumeStructureData;
 }
 
 type ResumeSections =
