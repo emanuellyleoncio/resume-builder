@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { Label } from "../label";
+import { Label } from "./label";
 
 type FieldWrapperProps = {
   label: string;
