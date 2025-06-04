@@ -42,7 +42,7 @@ export const ThemeSection = () => {
 
   return (
     <div>
-      <SectionTitle title="Tema" icon={Palette} />
+      <SectionTitle title="Theme" icon={Palette} />
 
       <Controller
         control={control}

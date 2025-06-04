@@ -1,7 +1,37 @@
-export const ResumeContent = () => {
+"use client"
+
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useFormContext } from "react-hook-form";
+import { NavigationHeader } from "./header";
+import { TransformControls } from "./controls";
+import { ResumeTemplate } from "./templates";
+
+type ResumeContentProps = {
+  title: string;
+}
+
+export const ResumeContent = ({ title }: ResumeContentProps) => {
+  const { watch } = useFormContext<ResumeData>();
+
+  const data = watch();
+
   return (
-    <section className="w-full h-full overflow-hidden flex items-center justify-center relative bg-muted dark:bg-background">
-        
+    <section className="overflow-hidden w-full h-full flex items-center justify-center relative bg-muted dark:bg-background">
+      <TransformWrapper
+        initialScale={0.5}
+        minScale={0.4}
+        centerOnInit
+        centerZoomedOut
+        limitToBounds={false}
+      >
+        <>
+          <NavigationHeader title={title} />
+          <TransformControls title={title} />
+          <TransformComponent>
+            <ResumeTemplate data={data} />
+          </TransformComponent>
+        </>
+      </TransformWrapper>
     </section>
-  );
-};
+  )
+}

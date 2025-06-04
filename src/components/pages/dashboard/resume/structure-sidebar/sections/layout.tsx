@@ -55,14 +55,14 @@ export const LayoutSection = () => {
 
   return (
     <div>
-      <SectionTitle title="Estrutura" icon={Columns3} />
+      <SectionTitle title="Structure" icon={Columns3} />
 
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="grid grid-cols-2 gap-4 mt-4">
           <Droppable droppableId="mainFields">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
-                <LayoutDragList title="Principal" fields={mainFields} />
+                <LayoutDragList title="Main Fields" fields={mainFields} />
                 {provided.placeholder}
               </div>
             )}
@@ -71,7 +71,7 @@ export const LayoutSection = () => {
           <Droppable droppableId="sidebarFields">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
-                <LayoutDragList title="Barra Lateral" fields={sidebarFields} />
+                <LayoutDragList title="Sidebar Fields" fields={sidebarFields} />
                 {provided.placeholder}
               </div>
             )}

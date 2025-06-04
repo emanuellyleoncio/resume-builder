@@ -46,7 +46,7 @@ export const LanguageSection = () => {
 
   return (
     <div>
-      <SectionTitle title="Linguagem" icon={Languages} />
+      <SectionTitle title="Languages" icon={Languages} />
 
       <Controller
         control={control}
